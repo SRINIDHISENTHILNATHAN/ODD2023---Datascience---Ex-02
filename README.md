@@ -114,12 +114,49 @@ dataset.shape
 ```
 dataset.describe()
 ```
+![image](https://github.com/SRINIDHISENTHILNATHAN/ODD2023---Datascience---Ex-02/assets/121373170/1074ed60-0476-4913-8601-9297063ee353)
 
 ```
 dataset.info()
 ```
+![image](https://github.com/SRINIDHISENTHILNATHAN/ODD2023---Datascience---Ex-02/assets/121373170/b76cbbf8-8025-4cef-8522-26a6800a156e)
 
 ```
 import seaborn as sns
 sns.boxplot(x='height',data=dataset)
 ```
+![image](https://github.com/SRINIDHISENTHILNATHAN/ODD2023---Datascience---Ex-02/assets/121373170/c43ee612-d5f6-4e7c-ae1e-7107892d95ae)
+
+```
+Q1_height=dataset['height'].quantile(0.25)
+Q3_height=dataset['height'].quantile(0.75)
+IQR_HEIGHT=Q3_height-Q1_height
+l_height=Q1_height-1.5*IQR_HEIGHT
+u_height=Q3_height+1.5*IQR_HEIGHT
+outliers_height=dataset[(dataset['height']<l_height) | (dataset['height']>u_height)]
+print(outliers_height)
+```
+![image](https://github.com/SRINIDHISENTHILNATHAN/ODD2023---Datascience---Ex-02/assets/121373170/623a0a6a-6abb-4833-a872-a7c98d04e59e)
+```
+sns.boxplot(x='height',data=newdata_height)
+```
+![image](https://github.com/SRINIDHISENTHILNATHAN/ODD2023---Datascience---Ex-02/assets/121373170/89a8edbf-2434-4c53-a67b-338c4b32db6c)
+```
+Q1_weight=dataset['weight'].quantile(0.25)
+Q3_weight=dataset['weight'].quantile(0.75)
+IQR_WEIGHT=Q3_weight-Q1_weight
+l_weight=Q1_weight-1.5*IQR_WEIGHT
+u_weight=Q3_weight+1.5*IQR_WEIGHT
+outliers_weight=dataset[(dataset['weight']<l_weight) | (dataset['weight']>u_weight)]
+print(outliers_weight)
+```
+![image](https://github.com/SRINIDHISENTHILNATHAN/ODD2023---Datascience---Ex-02/assets/121373170/dcd91f6d-c053-4133-9f62-dd31680117f9)
+```
+newdata_weight=dataset[(dataset['weight']>=l_weight) & (dataset['weight']<=u_weight)]
+print(newdata_weight)
+```
+![image](https://github.com/SRINIDHISENTHILNATHAN/ODD2023---Datascience---Ex-02/assets/121373170/cce80cc3-0317-4a09-9226-31d4ad21516b)
+```
+sns.boxplot(x='weight',data=newdata_weight)
+```
+![image](https://github.com/SRINIDHISENTHILNATHAN/ODD2023---Datascience---Ex-02/assets/121373170/dbc41d80-9e66-4833-8982-0065a77381ca)
