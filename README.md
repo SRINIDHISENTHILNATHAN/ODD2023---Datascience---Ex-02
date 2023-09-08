@@ -160,3 +160,6 @@ print(newdata_weight)
 sns.boxplot(x='weight',data=newdata_weight)
 ```
 ![image](https://github.com/SRINIDHISENTHILNATHAN/ODD2023---Datascience---Ex-02/assets/121373170/dbc41d80-9e66-4833-8982-0065a77381ca)
+
+# RESULT:
+Hence the given set of data is read and the outliers are removed using the IQR method and Zscore method.
